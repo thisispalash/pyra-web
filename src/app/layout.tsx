@@ -4,11 +4,32 @@ import "./globals.css";
 import { Suspense } from "react";
 
 // Import fonts
-const inter = Inter({ subsets: ["latin"] });
-const tiltPrism = Tilt_Prism({ subsets: ["latin"] });
-const raleway = Raleway({ subsets: ["latin"] });
-const quicksand = Quicksand({ subsets: ["latin"] });
-const kodeMono = Kode_Mono({ subsets: ["latin"] });
+const inter = Inter({ 
+  variable: '--font-inter',
+  subsets: ['latin', 'latin-ext'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+});
+const tiltPrism = Tilt_Prism({ 
+  variable: '--font-tilt-prism',
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400'],
+});
+const raleway = Raleway({ 
+  variable: '--font-raleway',
+  subsets: ['latin', 'latin-ext'], 
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+});
+const quicksand = Quicksand({ 
+  variable: '--font-quicksand',
+  subsets: ['latin', 'latin-ext'],
+  weight: ['300', '400', '500', '600', '700'],
+});
+const kodeMono = Kode_Mono({ 
+  variable: '--font-kode-mono',
+  subsets: ['latin', 'latin-ext'],
+  weight: ['400', '500', '600', '700'],
+});
+
 
 export const metadata: Metadata = {
   title: "The Pyra Platform",
@@ -23,12 +44,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`
-        dark
-        ${inter.className}
-        ${tiltPrism.className}
-        ${raleway.className}
-        ${quicksand.className}
-        ${kodeMono.className}
+        ${inter.variable}
+        ${tiltPrism.variable}
+        ${raleway.variable}
+        ${quicksand.variable}
+        ${kodeMono.variable}
       `}>
         {/* @todo fallback for suspense */}
         <Suspense>
