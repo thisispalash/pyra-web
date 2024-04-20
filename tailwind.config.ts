@@ -67,11 +67,23 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "pyra-appear": {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "pyra-appear": "pyra-appear 0.75s ease forwards",
       },
+      fontFamily: {
+        body: ['var(--font-quicksand)', 'sans-serif'],
+        heading: ['var(--font-raleway)', 'serif'],
+        cta: ['var(--font-kode-mono)', 'monospace'],
+        display: ['var(--font-tilt-prism)', 'serif'],
+        default: ['var(--font-inter)', 'sans-serif'],
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
