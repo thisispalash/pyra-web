@@ -1,54 +1,28 @@
-import clsx from "clsx"
+'use client';
+
+import { useState } from 'react';
+import ReactPageScroller from 'react-page-scroller';
+
+import Welcome from '@/components/landing/Welcome';
+import Auction from '@/components/landing/Auction';
+import Information from '@/components/landing/Information';
+import Waitlist from '@/components/landing/Waitlist';
 
 export default function Landing() {
+
+  const [ currentPage, setCurrentPage ] = useState(0);
+
+  const handlePageChange = (number: number) => setCurrentPage(number);
 
   return (
     <main className="flex flex-col min-h-screen items-center justify-between">
 
-      {/* Welcome to Pyra */}
-      <div className="flex flex-col min-h-screen w-full items-center p-36 gap-6 border border-black">
-
-        <div className="text-6xl font-heading">
-          Welcome to
-        </div>
-
-        <div className="text-9xl font-display">
-          {'pyra'.split('').map((letter, index) => (
-            <span 
-              key={index}
-              className="animate-pyra-appear opacity-0"
-              style={{ animationDelay: `${index * 0.75 + 0.1}s` }}
-            >
-              {letter}
-            </span>
-          ))}
-        </div>
-
-        <div 
-          className="text-2xl font-body animate-pyra-appear opacity-0"
-          style={{ animationDelay: '3.25s' }}
-        >
-          The auction house that rewards every bidder!
-        </div>
-
-      </div>
-
-      {/* What is Pyra? */}
-      <div className="flex flex-col min-h-screen w-full items-center p-24 gap-6 border border-black">
-
-
-      
-      </div>
-
-      {/* Auction Carousal */}
-      <div className="">
-
-      </div>
-
-      {/* Join the waitlist */}
-      <div className="">
-
-      </div>
+      <ReactPageScroller customPageNumber={currentPage} pageOnChange={handlePageChange}>
+        <Welcome setCurrentPage={setCurrentPage} />
+        <Information />
+        <Auction />
+        <Waitlist />
+      </ReactPageScroller>
 
     </main>
   )
