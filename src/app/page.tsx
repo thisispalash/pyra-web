@@ -19,7 +19,7 @@ export default function Landing() {
 
       <ReactPageScroller customPageNumber={currentPage} pageOnChange={handlePageChange}>
         <Welcome setCurrentPage={setCurrentPage} />
-        <Information />
+        <Information setCurrentPage={setCurrentPage} />
         <Auction />
         <Waitlist />
       </ReactPageScroller>

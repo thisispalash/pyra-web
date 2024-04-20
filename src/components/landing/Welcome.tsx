@@ -1,8 +1,10 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import SimulateButton from './buttons/SimulateButton';
+import InfoButton from './buttons/InfoButton';
+import WaitlistButton from './buttons/WaitlistButton';
 
-export default function Welcome({ setCurrentPage }: WelcomeProps) {
+export default function Welcome({ setCurrentPage }: PageProps) {
   return (
     
     <div className="flex flex-col min-h-screen w-full items-center p-36 gap-6">
@@ -38,17 +40,9 @@ export default function Welcome({ setCurrentPage }: WelcomeProps) {
       style={{ animationDelay: '4.25s' }}
     >
 
-      <Button variant="outline" className="font-cta" onClick={() => setCurrentPage(2)}>
-        Simulate an auction
-      </Button>
-
-      <Button variant="outline" className="font-cta" onClick={() => setCurrentPage(1)}>
-        How it works
-      </Button>
-
-      <Button variant="outline" className="font-cta" onClick={() => setCurrentPage(3)}>
-        Join the waitlist
-      </Button>
+      <SimulateButton setCurrentPage={setCurrentPage} />
+      <InfoButton setCurrentPage={setCurrentPage} />
+      <WaitlistButton setCurrentPage={setCurrentPage} />
 
     </div>
 
@@ -56,6 +50,6 @@ export default function Welcome({ setCurrentPage }: WelcomeProps) {
   );
 }
 
-interface WelcomeProps {
+interface PageProps {
   setCurrentPage: (page: number) => void;
 }
